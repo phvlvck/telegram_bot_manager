@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة التحكم بالبوتات</title>
+</head>
+<body>
+    <h1>قائمة البوتات</h1>
+    <ul>
+        {% for bot in bots %}
+            <li>
+                {{ bot }} -
+                {% if bot in running %}
+                    <strong>شغال</strong>
+                    <a href="/stop/{{ bot }}">إيقاف</a>
+                {% else %}
+                    <strong>متوقف</strong>
+                    <a href="/start/{{ bot }}">تشغيل</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
